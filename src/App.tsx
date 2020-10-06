@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react'
+import { Header, Piano, Footer } from './components'
 
-function App() {
-  return (
-    <div className="App">
-      Hello!
-    </div>
-  );
+const App: FunctionComponent = () => {
+    return (
+        <>
+            <Header />
+            <Piano />
+            <Footer />
+        </>
+    )
 }
 
-export default App;
+export default App
