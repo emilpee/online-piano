@@ -1,10 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+import { Header, Piano, Footer } from './components'
+import './styles/main.scss'
 
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <Header />
+        <Piano />
+        <Footer />
     </React.StrictMode>,
     document.getElementById('root'),
 )
