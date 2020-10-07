@@ -1,0 +1,11 @@
+@import '../../styles/mixins';
+
+.header {
+    @include flex-header-row;
+    background: #333;
+    color: #fff;
+
+    &-item {
+        padding: 12px;
+    }
+}

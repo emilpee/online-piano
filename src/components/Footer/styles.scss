@@ -1,0 +1,11 @@
+@import '../../styles/mixins';
+
+.footer {
+    @include center-content;
+    background: #333;
+    color: #fff;
+
+    &-item {
+        padding: 12px;
+    }
+}
