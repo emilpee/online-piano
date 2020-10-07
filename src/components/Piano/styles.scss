@@ -1,3 +1,48 @@
 .piano {
     padding: 1.5rem;
+
+    ul {
+        background: #222;
+        border-radius: 1rem;
+        display: flex;
+        min-height: 18rem;
+        min-width: 25rem;
+        padding: {
+            bottom: 1rem;
+            top: 3rem;
+        }
+
+        li {
+            border: {
+                left: 1px solid #333;
+            }
+            cursor: pointer;
+            list-style: none;
+        }
+
+        .black {
+            background: #333;
+            height: 4rem * 2;
+            margin: {
+                left: -1rem;
+            }
+            min-width: 2rem;
+            z-index: 1;
+        }
+
+        .white {
+            background: #fff;
+            height: 4rem * 4;
+            min-width: 4rem;
+            margin: {
+                left: -1rem;
+            }
+        }
+
+        .e,
+        .b {
+            margin-right: 1rem;
+            border-right: 1px solid #333;
+        }
+    }
 }
