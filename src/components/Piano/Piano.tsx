@@ -1,11 +1,20 @@
 import React, { FunctionComponent } from 'react'
+import { Howl, Howler } from 'howler'
 import './styles.scss'
 
 const Piano: FunctionComponent = () => {
+
+    const playNote = () => {
+        let sound = new Howl({
+            src: ['/audio/c3.mp3'],
+          })
+        sound.play()
+    }
+
     return (
         <div className="piano">
             <ul>
-                <li className="white c"></li>
+                <li onClick={playNote} className="white c"></li>
                 <li className="black c#"></li>
                 <li className="white d"></li>
                 <li className="black d#"></li>
