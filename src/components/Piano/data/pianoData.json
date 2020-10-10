@@ -1,0 +1,130 @@
+[
+    {
+        "key": "c3",
+        "type": "white"
+    },
+    {
+        "key": "c+3",
+        "type": "black"
+    },
+    {
+        "key": "d3",
+        "type": "white"
+    },
+    {
+        "key": "d+3",
+        "type": "black"
+    },
+    {
+        "key": "e3",
+        "type": "white"
+    },
+    {
+        "key": "f3",
+        "type": "white"
+    },
+    {
+        "key": "f+3",
+        "type": "black"
+    },
+    {
+        "key": "g3",
+        "type": "white"
+    },
+    {
+        "key": "g+3",
+        "type": "black"
+    },
+    {
+        "key": "a4",
+        "type": "white"
+    },
+    {
+        "key": "a+4",
+        "type": "black"
+    },
+    {
+        "key": "b4",
+        "type": "white"
+    },
+    {
+        "key": "c4",
+        "type": "white"
+    },
+    {
+        "key": "c+4",
+        "type": "black"
+    },
+    {
+        "key": "d4",
+        "type": "white"
+    },
+    {
+        "key": "d+4",
+        "type": "black"
+    },
+    {
+        "key": "e4",
+        "type": "white"
+    },
+    {
+        "key": "f4",
+        "type": "white"
+    },
+    {
+        "key": "f+4",
+        "type": "black"
+    },
+    {
+        "key": "g4",
+        "type": "white"
+    },
+    {
+        "key": "g+4",
+        "type": "black"
+    },
+    {
+        "key": "a5",
+        "type": "white"
+    },
+    {
+        "key": "a+5",
+        "type": "black"
+    },
+    {
+        "key": "b5",
+        "type": "white"
+    },
+    {
+        "key": "c5",
+        "type": "white"
+    },
+    {
+        "key": "c+5",
+        "type": "black"
+    },
+    {
+        "key": "d5",
+        "type": "white"
+    },
+    {
+        "key": "d+5",
+        "type": "black"
+    },
+    {
+        "key": "e5",
+        "type": "white"
+    },
+    {
+        "key": "f5",
+        "type": "white"
+    },
+    {
+        "key": "f+5",
+        "type": "black"
+    },
+    {
+        "key": "g5",
+        "type": "white"
+    }
+]
