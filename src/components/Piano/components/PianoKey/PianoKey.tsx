@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react'
 
-interface PianoKeyProps { 
+export interface PianoKeyProps { 
     id: string
-    onKeyClick: (event: React.MouseEvent<HTMLElement>) => void
+    onKeyClick?: (event: React.MouseEvent<HTMLElement>) => void
     className?: string
 }
 
