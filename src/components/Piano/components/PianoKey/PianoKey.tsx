@@ -1,15 +1,25 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent } from 'react'
 
 interface PianoKeyProps {
-  id: string;
-  onKeyClick: (event: React.MouseEvent<HTMLElement>) => void;
-  className?: string;
+  id: string
+  onKeyClick: (event: React.MouseEvent<HTMLElement>) => void
+  className?: string
+  onKeyBoardClick?: (e: React.KeyboardEvent<HTMLElement>) => void
+  tabIndex?: number
 }
 
 const PianoKey: FunctionComponent<PianoKeyProps> = (props) => {
-  const { onKeyClick, className, id } = props;
+  const { onKeyClick, onKeyBoardClick, className, id } = props
 
-  return <li onClick={onKeyClick} id={id} className={className}></li>;
-};
+  return (
+    <li
+      onClick={onKeyClick}
+      onKeyPress={(e) => onKeyBoardClick && onKeyBoardClick(e)}
+      id={id}
+      className={className}
+      tabIndex={0}
+    ></li>
+  )
+}
 
-export default PianoKey;
+export default PianoKey
