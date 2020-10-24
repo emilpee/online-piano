@@ -1,27 +1,34 @@
 [
   {
     "key": "c3",
-    "type": "white"
+    "type": "white",
+    "keyboardKey": "q"
   },
   {
     "key": "c+3",
-    "type": "black"
+    "type": "black",
+    "keyboardKey": "w"
   },
   {
     "key": "d3",
-    "type": "white"
+    "type": "white",
+    "keyboardKey": "e"
   },
   {
     "key": "d+3",
-    "type": "black"
+    "type": "black",
+    "keyboardKey": "r"
   },
   {
     "key": "e3",
-    "type": "white"
+    "type": "white",
+    "keyboardKey": "t"
+
   },
   {
     "key": "f3",
-    "type": "white"
+    "type": "white",
+    "keyboardKey": "y"
   },
   {
     "key": "f+3",
