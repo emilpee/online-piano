@@ -4,19 +4,20 @@
   @include flex-header-row;
   background: #333;
   color: #fff;
+  flex: 1;
 
   &-item {
     padding: 12px;
 
     &-logo {
-      color: black;
+      color: #222;
       font-family: 'Trispace', sans-serif;
       font-size: 3.5em;
       font-weight: 700;
       margin: 0;
-      text-shadow: 1px 2px 5px white;
-      -webkit-text-stroke-width: 1.2px;
-      -webkit-text-stroke-color: white;
+      text-shadow: 3px 3px 0 #222;
+      -webkit-text-fill-color: white;
+      -webkit-text-stroke: 1px white;
     }
   }
 }

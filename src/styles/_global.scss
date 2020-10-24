@@ -1,3 +1,22 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+body {
+  background-color: #eee;
+  font-family: 'Nunito', 'Arial', sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  display: flex;
+  flex: 6;
+}
+
 p,
 span,
 div {

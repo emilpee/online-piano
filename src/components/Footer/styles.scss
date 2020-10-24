@@ -1,9 +1,10 @@
-@import "../../styles/mixins";
+@import '../../styles/mixins';
 
 .footer {
   @include center-content;
   background: #333;
   color: #fff;
+  flex: 1;
 
   &-item {
     padding: 12px;
