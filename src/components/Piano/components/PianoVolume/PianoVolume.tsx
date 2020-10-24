@@ -1,8 +1,10 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent } from 'react';
 
 interface PianoVolumeProps {
   id: string;
-  handlePianoVolume: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  handlePianoVolume: (
+    event: React.MouseEvent<HTMLButtonElement>,
+  ) => void;
   children?: React.ReactNode | React.ReactText;
 }
 
@@ -16,7 +18,7 @@ const PianoVolume: FunctionComponent<PianoVolumeProps> = (props) => {
         id={id}
         onClick={handlePianoVolume}
       >
-        {children}
+        {children}{' '}
       </button>
     </div>
   );

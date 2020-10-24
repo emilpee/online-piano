@@ -37,12 +37,14 @@ const Piano: FunctionComponent = () => {
   return (
     <div className="piano">
       <PianoKeysContainer>
+        <div className="piano-volumes">
         <PianoVolume id="inc" handlePianoVolume={handlePianoVolume}>
           +
         </PianoVolume>
         <PianoVolume id="dec" handlePianoVolume={handlePianoVolume}>
           -
         </PianoVolume>
+        </div>
         {pianoData.map((pianoKey) => (
           <PianoKey
             onKeyClick={playNote}

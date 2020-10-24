@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from "react";
-import "./styles.scss";
+import React, { FunctionComponent } from 'react';
+import './styles.scss';
 
 const Header: FunctionComponent = () => {
   return (

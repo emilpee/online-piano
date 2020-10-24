@@ -1,4 +1,4 @@
-@import "../../styles/mixins";
+@import '../../styles/mixins';
 
 .header {
   @include flex-header-row;
@@ -10,7 +10,7 @@
 
     &-logo {
       color: black;
-      font-family: "Trispace", sans-serif;
+      font-family: 'Trispace', sans-serif;
       font-size: 3.5em;
       font-weight: 700;
       margin: 0;
