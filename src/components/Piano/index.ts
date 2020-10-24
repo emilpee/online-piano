@@ -1,1 +1,1 @@
-export { default } from './Piano'
+export { default } from "./Piano";

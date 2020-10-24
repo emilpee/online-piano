@@ -1,1 +1,1 @@
-export { default } from './PianoKey'
+export { default } from "./PianoKey";

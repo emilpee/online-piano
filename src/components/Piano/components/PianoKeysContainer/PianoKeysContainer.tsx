@@ -1,17 +1,15 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent } from "react";
 
 interface PianoKeysContainerProps {
-    children?: React.ReactNode
+  children?: React.ReactNode;
 }
 
-const PianoKeysContainer: FunctionComponent<PianoKeysContainerProps> = (props) => {
-    const { children } = props
-    
-    return (
-        <ul className="piano-container">
-            {children}
-        </ul>
-    )
-}
+const PianoKeysContainer: FunctionComponent<PianoKeysContainerProps> = (
+  props
+) => {
+  const { children } = props;
 
-export default PianoKeysContainer
+  return <ul className="piano-container">{children}</ul>;
+};
+
+export default PianoKeysContainer;

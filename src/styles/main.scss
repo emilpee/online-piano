@@ -1,8 +1,11 @@
-@import './global';
-@import './mixins';
+@import "./global";
+@import "./mixins";
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&family=Trispace:wght@300;400;700&display=swap");
 
 body {
-    background-color: #eee;
-    margin: 0;
-    padding: 0;
+  background-color: #eee;
+  font-family: "Nunito", "Arial", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
 }

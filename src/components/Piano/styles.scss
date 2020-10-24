@@ -1,60 +1,68 @@
-@import '../../styles/main.scss';
+@import "../../styles/main.scss";
 
 .piano {
-    padding: 1.5rem;
+  padding: 1.5rem;
 
-    &-container {
-        background: #222;
-        border-radius: 1rem;
-        display: flex;
-        padding: {
-            bottom: 1rem;
-            top: 3rem;
-        }
+  &-container {
+    background: #222;
+    border-radius: 1rem;
+    display: flex;
+    padding: {
+      bottom: 1rem;
+      top: 3rem;
+    }
+  }
+
+  &-key {
+    border: {
+      left: 1px solid #333;
+    }
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  &-volume {
+    display: flex;
+    min-width: 5rem;
+
+    &:nth-child(2) {
+      margin-right: 2rem;
     }
 
+    &-button {
+      @include center-content;
+      color: #333;
+      font-size: 2em;
+      width: 100%;
+    }
+  }
 
-    &-key {
-        border: {
-            left: 1px solid #333;
-        }
-        cursor: pointer;
-        list-style: none;
+  .black {
+    background: #333;
+    height: 4rem * 2;
+    margin: {
+      left: -1rem;
+    }
+    min-width: 2rem;
+    z-index: 1;
+
+    &:active {
+      background: #444;
+    }
+  }
+
+  .white {
+    background: #fff;
+    height: 4rem * 4;
+    min-width: 4rem;
+    margin: {
+      left: -1rem;
     }
 
-    &-volume {
-        display: flex;
-        min-width: 5rem;
-
-        &:nth-child(2) {
-            margin-right: 2rem;
-        }
-
-        &-button {
-            @include center-content;
-            color: #333;
-            font-size: 2em;
-            width: 100%;
-        }
-
+    &:active {
+      background: #ccc;
     }
-
-    .black {
-        background: #333;
-        height: 4rem * 2;
-        margin: {
-            left: -1rem;
-        }
-        min-width: 2rem;
-        z-index: 1;
-    }
-
-    .white {
-        background: #fff;
-        height: 4rem * 4;
-        min-width: 4rem;
-        margin: {
-            left: -1rem;
-        }
-    }
+  }
 }
