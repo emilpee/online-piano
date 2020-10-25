@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from 'react';
-import './styles.scss';
+import React, { FunctionComponent } from 'react'
+import './styles.scss'
 
 const Header: FunctionComponent = () => {
   return (
@@ -12,7 +12,7 @@ const Header: FunctionComponent = () => {
         <span>About</span>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

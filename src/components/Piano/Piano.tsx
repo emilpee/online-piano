@@ -4,10 +4,12 @@ import pianoData from './data/pianoData.json'
 import PianoContainer from './components/PianoContainer'
 import PianoKey from './components/PianoKey'
 import PianoVolume from './components/PianoVolume'
+import PianoMenu from './components/PianoMenu'
 import './styles.scss'
 
 const Piano: FunctionComponent = () => {
   const [volume, setVolume] = useState<number>(1)
+  const [isChecked, setIsChecked] = useState<boolean>(false)
 
   useEffect(() => {
     Howler.volume(Math.round(volume * 10) / 10)
@@ -52,8 +54,11 @@ const Piano: FunctionComponent = () => {
     }
   }
 
+  const handleSwitchCheck = () => setIsChecked(!isChecked)
+
   return (
     <section className="main">
+      <PianoMenu onChange={handleSwitchCheck} isChecked={isChecked} />
       <div className="piano">
         <PianoContainer>
           <div className="piano-volumes">
@@ -75,10 +80,12 @@ const Piano: FunctionComponent = () => {
               <PianoKey
                 onKeyClick={playNote}
                 onKeyBoardClick={handleKeyboardClick}
+                keyboardKey={pianoKey.keyboardKey}
                 key={pianoKey.key}
                 id={pianoKey.key}
                 className={`piano-keys-key ${pianoKey.type}`}
                 tabIndex={0}
+                isChecked={isChecked}
               />
             ))}
           </div>

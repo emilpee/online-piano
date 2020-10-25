@@ -1,7 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Header, Piano, Footer } from "./components";
-import "./styles/main.scss";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Header, Piano, Footer } from './components'
+import './styles/main.scss'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -9,5 +9,5 @@ ReactDOM.render(
     <Piano />
     <Footer />
   </React.StrictMode>,
-  document.getElementById("root")
-);
+  document.getElementById('root'),
+)

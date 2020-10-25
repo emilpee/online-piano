@@ -2,14 +2,23 @@ import React, { FunctionComponent } from 'react'
 
 interface PianoKeyProps {
   id: string
+  keyboardKey: string
   onKeyClick: (event: React.MouseEvent<HTMLElement>) => void
   className?: string
   onKeyBoardClick?: (e: React.KeyboardEvent<HTMLElement>) => void
   tabIndex?: number
+  isChecked?: boolean
 }
 
 const PianoKey: FunctionComponent<PianoKeyProps> = (props) => {
-  const { onKeyClick, onKeyBoardClick, className, id } = props
+  const {
+    id,
+    keyboardKey,
+    onKeyClick,
+    className,
+    onKeyBoardClick,
+    isChecked,
+  } = props
 
   return (
     <li
@@ -18,7 +27,11 @@ const PianoKey: FunctionComponent<PianoKeyProps> = (props) => {
       id={id}
       className={className}
       tabIndex={0}
-    ></li>
+    >
+      <span className={'piano-keys-keypress'}>
+        {isChecked && keyboardKey}
+      </span>
+    </li>
   )
 }
 
