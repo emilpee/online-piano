@@ -7,131 +7,157 @@
   {
     "key": "c+3",
     "type": "black",
-    "keyboardKey": "w"
+    "keyboardKey": "Q"
   },
   {
     "key": "d3",
     "type": "white",
-    "keyboardKey": "e"
+    "keyboardKey": "w"
   },
   {
     "key": "d+3",
     "type": "black",
-    "keyboardKey": "r"
+    "keyboardKey": "W"
   },
   {
     "key": "e3",
     "type": "white",
-    "keyboardKey": "t"
+    "keyboardKey": "e"
 
   },
   {
     "key": "f3",
     "type": "white",
-    "keyboardKey": "y"
+    "keyboardKey": "r"
   },
   {
     "key": "f+3",
-    "type": "black"
+    "type": "black",
+    "keyboardKey": "R"
   },
   {
     "key": "g3",
-    "type": "white"
+    "type": "white",
+    "keyboardKey": "t"
   },
   {
     "key": "g+3",
-    "type": "black"
+    "type": "black",
+    "keyboardKey": "T"
   },
   {
     "key": "a4",
-    "type": "white"
+    "type": "white",
+    "keyboardKey": "y"
   },
   {
     "key": "a+4",
-    "type": "black"
+    "type": "black",
+    "keyboardKey": "Y"
   },
   {
     "key": "b4",
-    "type": "white"
+    "type": "white",
+    "keyboardKey": "u"
   },
   {
     "key": "c4",
-    "type": "white"
+    "type": "white",
+    "keyboardKey": "a"
   },
   {
     "key": "c+4",
-    "type": "black"
+    "type": "black",
+    "keyboardKey": "A"
   },
   {
     "key": "d4",
-    "type": "white"
+    "type": "white",
+    "keyboardKey": "s"
   },
   {
     "key": "d+4",
-    "type": "black"
+    "type": "black",
+    "keyboardKey": "S"
   },
   {
     "key": "e4",
-    "type": "white"
+    "type": "white",
+    "keyboardKey": "d"
   },
   {
     "key": "f4",
-    "type": "white"
+    "type": "white",
+    "keyboardKey": "f"
   },
   {
     "key": "f+4",
-    "type": "black"
+    "type": "black",
+    "keyboardKey": "F"
   },
   {
     "key": "g4",
-    "type": "white"
+    "type": "white",
+    "keyboardKey": "g"
   },
   {
     "key": "g+4",
-    "type": "black"
+    "type": "black",
+    "keyboardKey": "G"
   },
   {
     "key": "a5",
-    "type": "white"
+    "type": "white",
+    "keyboardKey": "h"
   },
   {
     "key": "a+5",
-    "type": "black"
+    "type": "black",
+    "keyboardKey": "H"
   },
   {
     "key": "b5",
-    "type": "white"
+    "type": "white",
+    "keyboardKey": "j"
   },
   {
     "key": "c5",
-    "type": "white"
+    "type": "white",
+    "keyboardKey": "z"
   },
   {
     "key": "c+5",
-    "type": "black"
+    "type": "black",
+    "keyboardKey": "Z"
   },
   {
     "key": "d5",
-    "type": "white"
+    "type": "white",
+    "keyboardKey": "x"
   },
   {
     "key": "d+5",
-    "type": "black"
+    "type": "black",
+    "keyboardKey": "X"
   },
   {
     "key": "e5",
-    "type": "white"
+    "type": "white",
+    "keyboardKey": "c"
   },
   {
     "key": "f5",
-    "type": "white"
+    "type": "white",
+    "keyboardKey": "v"
   },
   {
     "key": "f+5",
-    "type": "black"
+    "type": "black",
+    "keyboardKey": "V"
   },
   {
     "key": "g5",
-    "type": "white"
+    "type": "white",
+    "keyboardKey": "b"
   }
 ]
