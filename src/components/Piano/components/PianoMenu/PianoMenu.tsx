@@ -1,6 +1,9 @@
 import React, { FunctionComponent } from 'react'
-import Switch from '@bit/mui-org.material-ui.switch'
-import FormControlLabel from '@bit/mui-org.material-ui.form-control-label'
+import {
+  Switch,
+  FormControl,
+  FormControlLabel,
+} from '@material-ui/core'
 
 interface PianoMenuProps {
   isChecked: boolean
@@ -12,12 +15,14 @@ const PianoMenu: FunctionComponent<PianoMenuProps> = (props) => {
 
   return (
     <main className="piano-menu">
-      <FormControlLabel
-        control={<Switch size={'medium'} color={'primary'} />}
-        label={'Show keyboard'}
-        checked={isChecked}
-        onChange={onChange}
-      />
+      <FormControl>
+        <FormControlLabel
+          control={<Switch size={'medium'} color={'primary'} />}
+          label={'Show keyboard'}
+          checked={isChecked}
+          onChange={onChange}
+        />
+      </FormControl>
     </main>
   )
 }
