@@ -27,18 +27,19 @@ const PianoKey: FunctionComponent<PianoKeyProps> = (props) => {
   })
 
   return (
-    <li
+    <button
       ref={pianoKey}
       onClick={onKeyClick}
       onKeyPress={onKeyboardPress}
       id={id}
       className={className}
       tabIndex={0}
+      autoFocus
     >
       <span className={'piano-keys-keypress'}>
         {isChecked && keyboardKey}
       </span>
-    </li>
+    </button>
   )
 }
 
