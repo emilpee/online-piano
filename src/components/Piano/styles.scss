@@ -35,10 +35,11 @@
       cursor: pointer;
       list-style: none;
     }
-  }
 
-  &-keypress {
-    @include center-content;
+    &-keypress {
+      @include center-content;
+      background: rgba(0, 0, 0, 0.4);
+    }
   }
 
   &-volumes {

@@ -19,7 +19,6 @@ const Piano: FunctionComponent = () => {
     event.persist()
 
     let pianoNote = (event.target as Element).id
-    console.log(pianoNote)
     let sound = new Howl({
       src: [`/audio/${pianoNote}.mp3`],
     })
@@ -79,7 +78,7 @@ const Piano: FunctionComponent = () => {
             {pianoData.map((pianoKey) => (
               <PianoKey
                 onKeyClick={playNote}
-                onKeyBoardClick={handleKeyboardClick}
+                onKeyboardPress={handleKeyboardClick}
                 keyboardKey={pianoKey.keyboardKey}
                 key={pianoKey.key}
                 id={pianoKey.key}

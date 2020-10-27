@@ -1,29 +1,36 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, useEffect, useRef } from 'react'
 
 interface PianoKeyProps {
   id: string
   keyboardKey: string
   onKeyClick: (event: React.MouseEvent<HTMLElement>) => void
   className?: string
-  onKeyBoardClick?: (e: React.KeyboardEvent<HTMLElement>) => void
+  onKeyboardPress?: (e: React.KeyboardEvent<HTMLElement>) => void
   tabIndex?: number
   isChecked?: boolean
 }
 
 const PianoKey: FunctionComponent<PianoKeyProps> = (props) => {
+  const pianoKey = useRef(null)
+
   const {
     id,
     keyboardKey,
     onKeyClick,
     className,
-    onKeyBoardClick,
+    onKeyboardPress,
     isChecked,
   } = props
 
+  useEffect(() => {
+    pianoKey.current.focus()
+  })
+
   return (
     <li
+      ref={pianoKey}
       onClick={onKeyClick}
-      onKeyPress={(e) => onKeyBoardClick && onKeyBoardClick(e)}
+      onKeyPress={onKeyboardPress}
       id={id}
       className={className}
       tabIndex={0}
