@@ -3,10 +3,3 @@
   display: flex;
   justify-content: center;
 }
-
-@mixin flex-header-row {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
