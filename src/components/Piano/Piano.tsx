@@ -11,6 +11,14 @@ import PianoKey from './components/PianoKey'
 import PianoVolume from './components/PianoVolume'
 import PianoMenu from './components/PianoMenu'
 import './styles.scss'
+import { makeStyles } from '@material-ui/core'
+
+const useStyles = makeStyles((theme) => ({
+  main: {
+    flex: 6,
+    flexDirection: 'column',
+  },
+}))
 
 const Piano: FunctionComponent = () => {
   const [volume, setVolume] = useState<number>(1)
@@ -72,10 +80,12 @@ const Piano: FunctionComponent = () => {
 
   const handleSwitchCheck = () => setIsChecked(!isChecked)
 
+  const classes = useStyles()
+
   return (
-    <section className="main">
+    <section className={classes.main}>
       <PianoMenu onChange={handleSwitchCheck} isChecked={isChecked} />
-      <div className="piano">
+      <div className={'piano'}>
         <PianoContainer>
           <div className="piano-volumes">
             <PianoVolume

@@ -1,20 +1,57 @@
+import { makeStyles } from '@material-ui/core'
 import React, { FunctionComponent, useState } from 'react'
 import About from '../About'
-import './styles.scss'
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    background: theme.palette.info.main,
+    borderRadius: 3,
+    border: 0,
+    padding: 12,
+    textTransform: 'uppercase',
+  },
+  header: {
+    alignItems: 'center',
+    backgroundColor: '#333',
+    color: '#fff',
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  headerItem: {
+    padding: 12,
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  about: {
+    justifyContent: 'flex-end',
+  },
+  logo: {
+    color: '#fff',
+    fontFamily: 'Trispace',
+    fontSize: 48,
+    fontWeight: 700,
+    margin: 0,
+    textShadow: '3px 3px 0 #222',
+  },
+}))
 
 const Header: FunctionComponent = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   const handleOpenModal = () => setIsModalOpen(!isModalOpen)
 
+  const classes = useStyles()
+
   return (
-    <header className="header">
-      <div className="header-item"></div>
-      <div className="header-item">
-        <span className="header-item-logo">onlinePiano</span>
+    <header className={classes.header}>
+      <div className={classes.headerItem}></div>
+      <div className={classes.headerItem}>
+        <span className={classes.logo}>onlinePiano</span>
       </div>
-      <div className="header-item">
-        <div style={{ cursor: 'pointer' }} onClick={handleOpenModal}>
+      <div className={`${classes.headerItem} ${classes.about}`}>
+        <div className={classes.button} onClick={handleOpenModal}>
           About
         </div>
       </div>
