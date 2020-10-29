@@ -15,7 +15,7 @@
   }
 
   &-menu {
-    background: rgb(118, 153, 161);
+    background: rgba(#333, 0.8);
     min-height: 3rem;
     @include center-content;
   }
@@ -66,16 +66,12 @@
       width: 100%;
 
       &#inc {
-        background: rgb(38, 209, 38);
-
         &:active {
           background: rgb(24, 165, 24);
         }
       }
 
       &#dec {
-        background: rgb(230, 57, 57);
-
         &:active {
           background: rgb(180, 33, 33);
         }

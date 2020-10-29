@@ -17,8 +17,8 @@ const PianoMenu: FunctionComponent<PianoMenuProps> = (props) => {
     <main className="piano-menu">
       <FormControl>
         <FormControlLabel
-          control={<Switch size={'medium'} color={'primary'} />}
-          label={'Show keyboard'}
+          control={<Switch size="medium" color="primary" />}
+          label="Show keyboard"
           checked={isChecked}
           onChange={onChange}
         />

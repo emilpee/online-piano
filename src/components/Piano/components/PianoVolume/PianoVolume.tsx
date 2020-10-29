@@ -1,3 +1,4 @@
+import { Button } from '@material-ui/core'
 import React, { FunctionComponent } from 'react'
 
 interface PianoVolumeProps {
@@ -6,20 +7,23 @@ interface PianoVolumeProps {
     event: React.MouseEvent<HTMLButtonElement>,
   ) => void
   children?: React.ReactNode | React.ReactText
+  color?: string
 }
 
 const PianoVolume: FunctionComponent<PianoVolumeProps> = (props) => {
-  const { handlePianoVolume, children, id } = props
+  const { handlePianoVolume, children, id, color } = props
 
   return (
     <div className="piano-volumes-container">
-      <button
+      <Button
+        color={color === 'primary' ? 'primary' : 'secondary'}
+        variant="contained"
         className="piano-volumes-button"
         id={id}
         onClick={handlePianoVolume}
       >
-        {children}{' '}
-      </button>
+        {children}
+      </Button>
     </div>
   )
 }
