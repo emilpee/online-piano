@@ -64,18 +64,6 @@
       min-height: 5rem;
       outline: none;
       width: 100%;
-
-      &#inc {
-        &:active {
-          background: rgb(24, 165, 24);
-        }
-      }
-
-      &#dec {
-        &:active {
-          background: rgb(180, 33, 33);
-        }
-      }
     }
   }
 

@@ -51,7 +51,11 @@ const Piano: FunctionComponent = () => {
       src: [`/audio/${pressedKey?.key}.mp3`],
     })
 
-    sound.play()
+    if (pressedKey) {
+      sound.play()
+    } else {
+      return
+    }
   }
 
   const handlePianoVolume = (
