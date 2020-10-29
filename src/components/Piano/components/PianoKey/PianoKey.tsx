@@ -1,18 +1,18 @@
-import React, { FunctionComponent, useEffect, useRef } from 'react'
+import React, { FunctionComponent } from 'react'
 
 interface PianoKeyProps {
   id: string
   keyboardKey: string
-  onKeyClick: (event: React.MouseEvent<HTMLElement>) => void
+  onKeyClick: (event: React.MouseEvent<HTMLButtonElement>) => void
   className?: string
-  onKeyboardPress?: (e: React.KeyboardEvent<HTMLElement>) => void
+  onKeyboardPress?: (
+    e: React.KeyboardEvent<HTMLButtonElement>,
+  ) => void
   tabIndex?: number
   isChecked?: boolean
 }
 
 const PianoKey: FunctionComponent<PianoKeyProps> = (props) => {
-  const pianoKey = useRef(null)
-
   const {
     id,
     keyboardKey,
@@ -22,13 +22,8 @@ const PianoKey: FunctionComponent<PianoKeyProps> = (props) => {
     isChecked,
   } = props
 
-  useEffect(() => {
-    pianoKey.current.focus()
-  })
-
   return (
     <button
-      ref={pianoKey}
       onClick={onKeyClick}
       onKeyPress={onKeyboardPress}
       id={id}

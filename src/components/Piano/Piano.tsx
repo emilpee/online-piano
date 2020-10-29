@@ -1,4 +1,9 @@
-import React, { FunctionComponent, useEffect, useState } from 'react'
+import React, {
+  FunctionComponent,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import { Howl, Howler } from 'howler'
 import pianoData from './data/pianoData.json'
 import PianoContainer from './components/PianoContainer'
@@ -10,12 +15,15 @@ import './styles.scss'
 const Piano: FunctionComponent = () => {
   const [volume, setVolume] = useState<number>(1)
   const [isChecked, setIsChecked] = useState<boolean>(false)
+  const pianoKeyRef = useRef(null)
 
   useEffect(() => {
     Howler.volume(Math.round(volume * 10) / 10)
   }, [volume])
 
-  const playNote = (event: React.MouseEvent<HTMLElement>): void => {
+  const handleKeyClick = (
+    event: React.MouseEvent<HTMLButtonElement>,
+  ): void => {
     event.persist()
 
     let pianoNote = (event.target as Element).id
@@ -27,12 +35,17 @@ const Piano: FunctionComponent = () => {
   }
 
   const handleKeyboardClick = (
-    event: React.KeyboardEvent<HTMLElement>,
+    event: React.KeyboardEvent<HTMLButtonElement>,
   ): void => {
     let keyName = event.key
     let pressedKey = pianoData.find(
       (key) => key.keyboardKey === keyName,
     )
+
+    if (pianoKeyRef.current !== null) {
+      pianoKeyRef?.current.focus()
+      // pianoKeyRef.current.style.backgroundColor = 'black'
+    }
 
     let sound = new Howl({
       src: [`/audio/${pressedKey?.key}.mp3`],
@@ -63,12 +76,14 @@ const Piano: FunctionComponent = () => {
           <div className="piano-volumes">
             <PianoVolume
               id="inc"
+              color="primary"
               handlePianoVolume={handlePianoVolume}
             >
               +
             </PianoVolume>
             <PianoVolume
               id="dec"
+              color="secondary"
               handlePianoVolume={handlePianoVolume}
             >
               -
@@ -77,7 +92,7 @@ const Piano: FunctionComponent = () => {
           <div className="piano-keys">
             {pianoData.map((pianoKey) => (
               <PianoKey
-                onKeyClick={playNote}
+                onKeyClick={handleKeyClick}
                 onKeyboardPress={handleKeyboardClick}
                 keyboardKey={pianoKey.keyboardKey}
                 key={pianoKey.key}
