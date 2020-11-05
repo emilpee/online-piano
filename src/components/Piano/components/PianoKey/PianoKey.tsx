@@ -1,3 +1,4 @@
+import { makeStyles } from '@material-ui/core'
 import React, { FunctionComponent } from 'react'
 
 interface PianoKeyProps {
@@ -12,6 +13,15 @@ interface PianoKeyProps {
   isChecked?: boolean
 }
 
+const useStyles = makeStyles((theme) => ({
+  keypress: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    background: '#777',
+  },
+}))
+
 const PianoKey: FunctionComponent<PianoKeyProps> = (props) => {
   const {
     id,
@@ -22,6 +32,8 @@ const PianoKey: FunctionComponent<PianoKeyProps> = (props) => {
     isChecked,
   } = props
 
+  const classes = useStyles()
+
   return (
     <button
       onClick={onKeyClick}
@@ -31,7 +43,7 @@ const PianoKey: FunctionComponent<PianoKeyProps> = (props) => {
       tabIndex={0}
       autoFocus
     >
-      <span className={'piano-keys-keypress'}>
+      <span className={classes.keypress}>
         {isChecked && keyboardKey}
       </span>
     </button>

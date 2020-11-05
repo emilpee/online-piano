@@ -1,4 +1,4 @@
-import { Button } from '@material-ui/core'
+import { Button, makeStyles } from '@material-ui/core'
 import React, { FunctionComponent } from 'react'
 
 interface PianoVolumeProps {
@@ -10,15 +10,35 @@ interface PianoVolumeProps {
   color?: string
 }
 
+const useStyles = makeStyles((theme) => ({
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  button: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: theme.shape.borderRadius * 4,
+    color: '#eee',
+    fontSize: 32,
+    minHeight: 80,
+    outline: 'none',
+    minWidth: 100,
+  },
+}))
+
 const PianoVolume: FunctionComponent<PianoVolumeProps> = (props) => {
   const { handlePianoVolume, children, id, color } = props
 
+  const classes = useStyles()
+
   return (
-    <div className="piano-volumes-container">
+    <div className={classes.container}>
       <Button
         color={color === 'primary' ? 'primary' : 'secondary'}
         variant="contained"
-        className="piano-volumes-button"
+        className={classes.button}
         id={id}
         onClick={handlePianoVolume}
       >

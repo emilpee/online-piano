@@ -3,6 +3,7 @@ import {
   Switch,
   FormControl,
   FormControlLabel,
+  makeStyles,
 } from '@material-ui/core'
 
 interface PianoMenuProps {
@@ -10,11 +11,21 @@ interface PianoMenuProps {
   onChange?: () => void
 }
 
+const useStyles = makeStyles((theme) => ({
+  menu: {
+    backgroundColor: '#444',
+    minHeight: theme.mixins.toolbar.minHeight,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+}))
+
 const PianoMenu: FunctionComponent<PianoMenuProps> = (props) => {
   const { isChecked, onChange } = props
-
+  const classes = useStyles()
   return (
-    <main className="piano-menu">
+    <main className={classes.menu}>
       <FormControl>
         <FormControlLabel
           control={<Switch size="medium" color="primary" />}

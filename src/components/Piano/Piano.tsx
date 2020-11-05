@@ -10,13 +10,67 @@ import PianoContainer from './components/PianoContainer'
 import PianoKey from './components/PianoKey'
 import PianoVolume from './components/PianoVolume'
 import PianoMenu from './components/PianoMenu'
-import './styles.scss'
 import { makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
   main: {
     flex: 6,
     flexDirection: 'column',
+  },
+  pianoContainer: {
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: '#222',
+    display: 'flex',
+    margin: theme.spacing(5),
+    paddingBottom: theme.spacing(2),
+    paddingTop: theme.spacing(5),
+    minWidth: 1200,
+  },
+  pianoKeys: {
+    display: 'flex',
+    marginRight: theme.spacing(4),
+  },
+  singlePianoKey: {
+    borderLeft: '1px solid #333',
+    borderBottomLeftRadius: theme.shape.borderRadius,
+    borderBottomRightRadius: theme.shape.borderRadius,
+    cursor: 'pointer',
+    listStyle: 'none',
+  },
+  pianoVolumes: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
+    marginRight: theme.spacing(5),
+    minWidth: 120,
+  },
+  black: {
+    background: '#333',
+    height: 128,
+    marginLeft: -16,
+    minWidth: 28,
+    zIndex: 1,
+    '&:active': {
+      background: 'linear-gradient(to top, #444 0%, #333 100%)',
+    },
+    '&:focus': {
+      outline: 'none',
+    },
+  },
+  white: {
+    background: '#fff',
+    height: 256,
+    minWidth: 56,
+    marginLeft: -16,
+    '&:active': {
+      background: 'linear-gradient(to bottom, #fff 0%, #e6e6e6 100%)',
+    },
+    '&:focus': {
+      outline: 'none',
+    },
+  },
+  margin: {
+    marginRight: 8,
   },
 }))
 
@@ -85,40 +139,49 @@ const Piano: FunctionComponent = () => {
   return (
     <section className={classes.main}>
       <PianoMenu onChange={handleSwitchCheck} isChecked={isChecked} />
-      <div className={'piano'}>
-        <PianoContainer>
-          <div className="piano-volumes">
-            <PianoVolume
-              id="inc"
-              color="primary"
-              handlePianoVolume={handlePianoVolume}
-            >
-              +
-            </PianoVolume>
-            <PianoVolume
-              id="dec"
-              color="secondary"
-              handlePianoVolume={handlePianoVolume}
-            >
-              -
-            </PianoVolume>
-          </div>
-          <div className="piano-keys">
-            {pianoData.map((pianoKey) => (
-              <PianoKey
-                onKeyClick={handleKeyClick}
-                onKeyboardPress={handleKeyboardClick}
-                keyboardKey={pianoKey.keyboardKey}
-                key={pianoKey.key}
-                id={pianoKey.key}
-                className={`piano-keys-key ${pianoKey.type}`}
-                tabIndex={0}
-                isChecked={isChecked}
-              />
-            ))}
-          </div>
-        </PianoContainer>
-      </div>
+      <PianoContainer className={classes.pianoContainer}>
+        <div className={classes.pianoVolumes}>
+          <PianoVolume
+            id="inc"
+            color="primary"
+            handlePianoVolume={handlePianoVolume}
+          >
+            +
+          </PianoVolume>
+          <PianoVolume
+            id="dec"
+            color="secondary"
+            handlePianoVolume={handlePianoVolume}
+          >
+            -
+          </PianoVolume>
+        </div>
+        <div className={classes.pianoKeys}>
+          {pianoData.map((pianoKey) => (
+            <PianoKey
+              onKeyClick={handleKeyClick}
+              onKeyboardPress={handleKeyboardClick}
+              keyboardKey={pianoKey.keyboardKey}
+              key={pianoKey.key}
+              id={pianoKey.key}
+              className={`${classes.singlePianoKey} 
+                ${
+                  pianoKey.key.includes('b') ||
+                  pianoKey.key.includes('e')
+                    ? classes.margin
+                    : ''
+                }
+                ${
+                  pianoKey.type === 'black'
+                    ? classes.black
+                    : classes.white
+                }`}
+              tabIndex={0}
+              isChecked={isChecked}
+            />
+          ))}
+        </div>
+      </PianoContainer>
     </section>
   )
 }
