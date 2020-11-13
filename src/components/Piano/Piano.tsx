@@ -9,6 +9,7 @@ import pianoData from './data/pianoData.json'
 import PianoContainer from './components/PianoContainer'
 import PianoKey from './components/PianoKey'
 import PianoVolume from './components/PianoVolume'
+import PianoVolumeDisplay from './components/PianoVolumeDisplay'
 import PianoMenu from './components/PianoMenu'
 import { makeStyles } from '@material-ui/core'
 
@@ -123,12 +124,12 @@ const Piano: FunctionComponent = () => {
   const handlePianoVolume = (
     event: React.MouseEvent<HTMLButtonElement>,
   ) => {
-    const buttonType = event.target as HTMLButtonElement
+    const buttonType = event.currentTarget as HTMLButtonElement
 
     if (buttonType.id === 'inc' && volume < 1) {
-      setVolume(volume + 0.1)
+      setVolume((volume) => volume + 0.1)
     } else if (buttonType.id === 'dec' && volume > 0.1) {
-      setVolume(volume - 0.1)
+      setVolume((volume) => volume - 0.1)
     }
   }
 
@@ -141,6 +142,7 @@ const Piano: FunctionComponent = () => {
       <PianoMenu onChange={handleSwitchCheck} isChecked={isChecked} />
       <PianoContainer className={classes.pianoContainer}>
         <div className={classes.pianoVolumes}>
+          <PianoVolumeDisplay volume={volume} />
           <PianoVolume
             id="inc"
             color="primary"
