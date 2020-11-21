@@ -20,11 +20,18 @@ const About: FunctionComponent<AboutModalProps> = (props) => {
       <DialogTitle>About onlinePiano</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          This is a hobby project created by Emil Petersson.
+          This is a hobby project created by Emil Petersson. The
+          project is available on{' '}
+          <a href="https://github.com/emilpee/online-piano">GitHub</a>
+          .
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button color="secondary" onClick={handleModalOpen}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleModalOpen}
+        >
           OK
         </Button>
       </DialogActions>

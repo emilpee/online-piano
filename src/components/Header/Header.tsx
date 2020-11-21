@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core'
+import { Button, makeStyles } from '@material-ui/core'
 import React, { FunctionComponent, useState } from 'react'
 import About from '../About'
 
@@ -51,9 +51,13 @@ const Header: FunctionComponent = () => {
         <span className={classes.logo}>onlinePiano</span>
       </div>
       <div className={`${classes.headerItem} ${classes.about}`}>
-        <div className={classes.button} onClick={handleOpenModal}>
+        <Button
+          variant="contained"
+          className={classes.button}
+          onClick={handleOpenModal}
+        >
           About
-        </div>
+        </Button>
       </div>
       <About
         isModalOpen={isModalOpen}

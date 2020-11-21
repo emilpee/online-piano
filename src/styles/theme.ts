@@ -19,6 +19,9 @@ export const theme = createMuiTheme({
             },
             span: {
                 color: '#fff'
+            },
+            a: {
+              textDecoration: 'none',
             }
           },
         },
