@@ -1,7 +1,7 @@
 import React, {
   FunctionComponent,
+  useCallback,
   useEffect,
-  useRef,
   useState,
 } from 'react'
 import { Howl, Howler } from 'howler'
@@ -77,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
 const Piano: FunctionComponent = () => {
   const [volume, setVolume] = useState<number>(1)
   const [isChecked, setIsChecked] = useState<boolean>(false)
-  const pianoKeyRef = useRef(null)
+  const [currentFocus, setCurrentFocus] = useState(-1)
 
   useEffect(() => {
     Howler.volume(Math.round(volume * 10) / 10)
@@ -96,30 +96,6 @@ const Piano: FunctionComponent = () => {
     sound.play()
   }
 
-  const handleKeyboardClick = (
-    event: React.KeyboardEvent<HTMLButtonElement>,
-  ): void => {
-    let keyName = event.key
-    let pressedKey = pianoData.find(
-      (key) => key.keyboardKey === keyName,
-    )
-
-    if (pianoKeyRef.current !== null) {
-      pianoKeyRef?.current.focus()
-      // pianoKeyRef.current.style.backgroundColor = 'black'
-    }
-
-    let sound = new Howl({
-      src: [`/audio/${pressedKey?.key}.mp3`],
-    })
-
-    if (pressedKey) {
-      sound.play()
-    } else {
-      return
-    }
-  }
-
   const handlePianoVolume = (
     event: React.MouseEvent<HTMLButtonElement>,
   ) => {
@@ -131,6 +107,37 @@ const Piano: FunctionComponent = () => {
       setVolume(volume - 0.1)
     }
   }
+
+  const handleKeyDown = useCallback(
+    (e) => {
+      e.preventDefault()
+      let keyName = e.key
+      let pressedKey = pianoData.find(
+        (key) => key.keyboardKey === keyName,
+      )
+
+      let sound = new Howl({
+        src: [`/audio/${pressedKey?.key}.mp3`],
+      })
+
+      if (pressedKey) {
+        sound.play()
+      } else {
+        return
+      }
+
+      setCurrentFocus(pianoData.indexOf(pressedKey))
+    },
+    [setCurrentFocus],
+  )
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [handleKeyDown])
 
   const handleSwitchCheck = () => setIsChecked(!isChecked)
 
@@ -157,13 +164,15 @@ const Piano: FunctionComponent = () => {
           </PianoVolume>
         </div>
         <div className={classes.pianoKeys}>
-          {pianoData.map((pianoKey) => (
+          {pianoData.map((pianoKey, index) => (
             <PianoKey
-              onKeyClick={handleKeyClick}
-              onKeyboardPress={handleKeyboardClick}
-              keyboardKey={pianoKey.keyboardKey}
-              key={pianoKey.key}
               id={pianoKey.key}
+              key={pianoKey.key}
+              index={index}
+              onKeyClick={handleKeyClick}
+              keyboardKey={pianoKey.keyboardKey}
+              focus={currentFocus === index}
+              setFocus={setCurrentFocus}
               className={`${classes.singlePianoKey} 
                 ${
                   pianoKey.key.includes('b') ||
@@ -176,7 +185,6 @@ const Piano: FunctionComponent = () => {
                     ? classes.black
                     : classes.white
                 }`}
-              tabIndex={0}
               isChecked={isChecked}
             />
           ))}
