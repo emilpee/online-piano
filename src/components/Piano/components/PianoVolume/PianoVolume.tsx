@@ -22,9 +22,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: theme.shape.borderRadius * 4,
     color: '#eee',
     fontSize: 32,
-    minHeight: 80,
+    minHeight: 60,
     outline: 'none',
-    minWidth: 100,
+    width: '100%',
   },
 }))
 
