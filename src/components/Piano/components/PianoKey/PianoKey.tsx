@@ -77,7 +77,7 @@ const PianoKey: FunctionComponent<PianoKeyProps> = (props) => {
       ref={pianoKeyRef}
     >
       <span className={classes.keyboardKey}>
-        {isChecked && keyboardKey}
+        {isChecked ? keyboardKey : null}
       </span>
     </button>
   )

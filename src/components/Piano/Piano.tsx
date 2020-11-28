@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(5),
     paddingBottom: theme.spacing(2),
     paddingTop: theme.spacing(5),
-    minWidth: 1200,
+    width: 1200,
   },
   pianoKeys: {
     display: 'flex',
@@ -111,7 +111,10 @@ const Piano: FunctionComponent = () => {
 
   const handleKeyDown = useCallback(
     (e) => {
-      e.preventDefault()
+      if (e.repeat) {
+        return
+      }
+
       let keyName = e.key
       let pressedKey = pianoData.find(
         (key) => key.keyboardKey === keyName,
@@ -119,15 +122,13 @@ const Piano: FunctionComponent = () => {
 
       let sound = new Howl({
         src: [`/audio/${pressedKey?.key}.mp3`],
+        preload: true,
       })
 
-      if (pressedKey) {
+      if (pressedKey && !sound.playing()) {
         sound.play()
-      } else {
-        return
+        setCurrentFocus(pianoData.indexOf(pressedKey))
       }
-
-      setCurrentFocus(pianoData.indexOf(pressedKey))
     },
     [setCurrentFocus],
   )
