@@ -2,6 +2,7 @@ import React, {
   FunctionComponent,
   useCallback,
   useEffect,
+  useRef,
   useState,
 } from 'react'
 import { Howl, Howler } from 'howler'
@@ -52,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 28,
     zIndex: 1,
     '&:active': {
-      background: 'linear-gradient(to top, #444 0%, #333 100%)',
+      background: 'linear-gradient(to top, #555 0%, #333 100%)',
     },
     '&:focus': {
       outline: 'none',
@@ -73,12 +74,20 @@ const useStyles = makeStyles((theme) => ({
   margin: {
     marginRight: 8,
   },
+  keypressWhite: {
+    background: 'linear-gradient(to bottom, #fff 0%, #e6e6e6 100%)',
+  },
+  keypressBlack: {
+    background: 'linear-gradient(to top, #555 0%, #333 100%)',
+  },
 }))
 
 const Piano: FunctionComponent = () => {
   const [volume, setVolume] = useState<number>(1)
   const [isChecked, setIsChecked] = useState<boolean>(false)
-  const [currentFocus, setCurrentFocus] = useState(-1)
+  const [currentFocus, setCurrentFocus] = useState<number>(-1)
+  const classes = useStyles()
+  const pianoKeyRef = useRef([])
 
   useEffect(() => {
     Howler.volume(Math.round(volume * 10) / 10)
@@ -115,6 +124,11 @@ const Piano: FunctionComponent = () => {
         return
       }
 
+      pianoKeyRef.current = pianoKeyRef.current.slice(
+        0,
+        pianoData.length,
+      )
+
       let keyName = e.key
       let pressedKey = pianoData.find(
         (key) => key.keyboardKey === keyName,
@@ -128,9 +142,42 @@ const Piano: FunctionComponent = () => {
       if (pressedKey && !sound.playing()) {
         sound.play()
         setCurrentFocus(pianoData.indexOf(pressedKey))
+
+        if (pianoKeyRef) {
+          let index = pianoData.indexOf(pressedKey)
+          pianoKeyRef.current[index].focus()
+
+          pianoKeyRef.current[index].classList.contains(classes.white)
+            ? pianoKeyRef.current[index].classList.add(
+                classes.keypressWhite,
+              )
+            : pianoKeyRef.current[index].classList.add(
+                classes.keypressBlack,
+              )
+
+          setTimeout(
+            () =>
+              pianoKeyRef.current[index].classList.contains(
+                classes.white,
+              )
+                ? pianoKeyRef.current[index].classList.remove(
+                    classes.keypressWhite,
+                  )
+                : pianoKeyRef.current[index].classList.remove(
+                    classes.keypressBlack,
+                  ),
+            200,
+          )
+        }
       }
     },
-    [setCurrentFocus],
+    [
+      setCurrentFocus,
+      pianoKeyRef,
+      classes.keypressWhite,
+      classes.white,
+      classes.keypressBlack,
+    ],
   )
 
   useEffect(() => {
@@ -142,8 +189,6 @@ const Piano: FunctionComponent = () => {
   }, [handleKeyDown])
 
   const handleSwitchCheck = () => setIsChecked(!isChecked)
-
-  const classes = useStyles()
 
   return (
     <section className={classes.main}>
@@ -176,6 +221,9 @@ const Piano: FunctionComponent = () => {
               keyboardKey={pianoKey.keyboardKey}
               focus={currentFocus === index}
               setFocus={setCurrentFocus}
+              value={(el: HTMLButtonElement) =>
+                (pianoKeyRef.current[index] = el)
+              }
               className={`${classes.singlePianoKey} 
                 ${
                   pianoKey.key.includes('b') ||

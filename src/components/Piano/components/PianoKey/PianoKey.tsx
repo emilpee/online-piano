@@ -4,8 +4,6 @@ import React, {
   FunctionComponent,
   SetStateAction,
   useCallback,
-  useEffect,
-  useRef,
 } from 'react'
 
 interface PianoKeyProps {
@@ -18,13 +16,10 @@ interface PianoKeyProps {
   focus?: boolean
   setFocus?: Dispatch<SetStateAction<number>>
   index?: number
+  value?: (el: HTMLButtonElement) => HTMLButtonElement
 }
 
 const useStyles = makeStyles((theme) => ({
-  keypress: {
-    background:
-      'linear-gradient(to bottom, #fff 0%, #e6e6e6 100%) !important',
-  },
   keyboardKey: {
     display: 'flex',
     alignItems: 'center',
@@ -42,26 +37,11 @@ const PianoKey: FunctionComponent<PianoKeyProps> = (props) => {
     keyboardKey,
     onKeyClick,
     className,
+    value,
     isChecked,
   } = props
 
-  const pianoKeyRef = useRef(null)
-
   const classes = useStyles()
-
-  useEffect(() => {
-    const currentSelectedKey = pianoKeyRef.current
-
-    if (focus && currentSelectedKey) {
-      currentSelectedKey.focus()
-      currentSelectedKey.classList.add(classes.keypress)
-
-      setTimeout(
-        () => currentSelectedKey.classList.remove(classes.keypress),
-        200,
-      )
-    }
-  }, [focus, pianoKeyRef, classes.keypress])
 
   const handleFocus = useCallback(() => {
     setFocus(index)
@@ -73,8 +53,8 @@ const PianoKey: FunctionComponent<PianoKeyProps> = (props) => {
       onClick={onKeyClick}
       onKeyDown={handleFocus}
       id={id}
+      ref={value}
       className={className}
-      ref={pianoKeyRef}
     >
       <span className={classes.keyboardKey}>
         {isChecked ? keyboardKey : null}
