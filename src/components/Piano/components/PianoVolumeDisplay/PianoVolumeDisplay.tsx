@@ -26,14 +26,14 @@ const PianoVolumeDisplay: FunctionComponent<PianoVolumeDisplayProps> = (
   props,
 ) => {
   const { volume } = props
-
+  const volumeInPercent = (volume * 100).toFixed()
   const classes = useStyles()
 
   return (
     <>
       <span className={classes.pianoVolumeTitle}>Volume</span>
       <div className={classes.pianoVolumeDisplay}>
-        <span>{volume.toFixed(1)}</span>
+        <span>{volumeInPercent} %</span>
       </div>
     </>
   )
