@@ -20,10 +20,13 @@ const About: FunctionComponent<AboutModalProps> = (props) => {
       <DialogTitle>About onlinePiano</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          This is a hobby project created by Emil Petersson. The
-          project is available on{' '}
+          This is a hobby project just for fun, created by Emil
+          Petersson.
+        </DialogContentText>
+        <DialogContentText>
+          The project is available on{' '}
           <a href="https://github.com/emilpee/online-piano">GitHub</a>
-          .
+          . Pull requests are more than welcome.
         </DialogContentText>
       </DialogContent>
       <DialogActions>

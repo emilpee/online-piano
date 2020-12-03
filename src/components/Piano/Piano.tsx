@@ -6,12 +6,14 @@ import React, {
   useState,
 } from 'react'
 import { Howl, Howler } from 'howler'
-import pianoData from './data/pianoData.json'
-import PianoContainer from './components/PianoContainer'
-import PianoKey from './components/PianoKey'
-import PianoVolume from './components/PianoVolume'
-import PianoVolumeDisplay from './components/PianoVolumeDisplay'
-import PianoMenu from './components/PianoMenu'
+import pianoData from '../../data/pianoData.json'
+import {
+  PianoContainer,
+  PianoKey,
+  PianoVolume,
+  PianoVolumeDisplay,
+  PianoMenu,
+} from './components/'
 import { makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
