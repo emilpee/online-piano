@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: theme.palette.action.focus,
+    color: theme.palette.info.light,
   },
 }))
 

@@ -26,7 +26,7 @@ const About: FunctionComponent<AboutModalProps> = (props) => {
         <DialogContentText>
           The project is available on{' '}
           <a href="https://github.com/emilpee/online-piano">GitHub</a>
-          . Pull requests are more than welcome.
+          . Pull requests are welcome.
         </DialogContentText>
       </DialogContent>
       <DialogActions>

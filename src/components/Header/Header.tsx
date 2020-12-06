@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
     color: '#fff',
     display: 'flex',
     flexDirection: 'row',
+    [theme.breakpoints.down('xs')]: {
+      flexDirection: 'column',
+    },
   },
   headerItem: {
     padding: 12,

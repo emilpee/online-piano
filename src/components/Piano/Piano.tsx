@@ -20,6 +20,13 @@ const useStyles = makeStyles((theme) => ({
   main: {
     flex: 6,
     flexDirection: 'column',
+    overflow: 'scroll',
+    WebkitOverflowScrolling: 'touch',
+  },
+  wrapper: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   pianoContainer: {
     borderRadius: theme.shape.borderRadius,
@@ -193,40 +200,42 @@ const Piano: FunctionComponent = () => {
   const handleSwitchCheck = () => setIsChecked(!isChecked)
 
   return (
-    <section className={classes.main}>
+    <>
       <PianoMenu onChange={handleSwitchCheck} isChecked={isChecked} />
-      <PianoContainer className={classes.pianoContainer}>
-        <div className={classes.pianoVolumes}>
-          <PianoVolumeDisplay volume={volume} />
-          <PianoVolume
-            id="inc"
-            color="primary"
-            handlePianoVolume={handlePianoVolume}
-          >
-            +
-          </PianoVolume>
-          <PianoVolume
-            id="dec"
-            color="secondary"
-            handlePianoVolume={handlePianoVolume}
-          >
-            -
-          </PianoVolume>
-        </div>
-        <div className={classes.pianoKeys}>
-          {pianoData.map((pianoKey, index) => (
-            <PianoKey
-              id={pianoKey.key}
-              key={pianoKey.key}
-              index={index}
-              onKeyClick={handleKeyClick}
-              keyboardKey={pianoKey.keyboardKey}
-              focus={currentFocus === index}
-              setFocus={setCurrentFocus}
-              value={(el: HTMLButtonElement) =>
-                (pianoKeyRef.current[index] = el)
-              }
-              className={`${classes.singlePianoKey} 
+      <section className={classes.main}>
+        <div className={classes.wrapper}>
+          <PianoContainer className={classes.pianoContainer}>
+            <div className={classes.pianoVolumes}>
+              <PianoVolumeDisplay volume={volume} />
+              <PianoVolume
+                id="inc"
+                color="primary"
+                handlePianoVolume={handlePianoVolume}
+              >
+                +
+              </PianoVolume>
+              <PianoVolume
+                id="dec"
+                color="secondary"
+                handlePianoVolume={handlePianoVolume}
+              >
+                -
+              </PianoVolume>
+            </div>
+            <div className={classes.pianoKeys}>
+              {pianoData.map((pianoKey, index) => (
+                <PianoKey
+                  id={pianoKey.key}
+                  key={pianoKey.key}
+                  index={index}
+                  onKeyClick={handleKeyClick}
+                  keyboardKey={pianoKey.keyboardKey}
+                  focus={currentFocus === index}
+                  setFocus={setCurrentFocus}
+                  value={(el: HTMLButtonElement) =>
+                    (pianoKeyRef.current[index] = el)
+                  }
+                  className={`${classes.singlePianoKey} 
                 ${
                   pianoKey.key.includes('b') ||
                   pianoKey.key.includes('e')
@@ -238,12 +247,14 @@ const Piano: FunctionComponent = () => {
                     ? classes.black
                     : classes.white
                 }`}
-              isChecked={isChecked}
-            />
-          ))}
+                  isChecked={isChecked}
+                />
+              ))}
+            </div>
+          </PianoContainer>
         </div>
-      </PianoContainer>
-    </section>
+      </section>
+    </>
   )
 }
 
