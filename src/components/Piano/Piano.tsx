@@ -27,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    [theme.breakpoints.down('xs')]: {
+      justifyContent: 'flex-start',
+    },
   },
   pianoContainer: {
     borderRadius: theme.shape.borderRadius,
@@ -36,6 +39,10 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(2),
     paddingTop: theme.spacing(5),
     width: 1200,
+    [theme.breakpoints.down('xs')]: {
+      margin: 0,
+      marginTop: theme.spacing(4),
+    },
   },
   pianoKeys: {
     display: 'flex',
@@ -54,11 +61,15 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-evenly',
     marginRight: theme.spacing(5),
     minWidth: 120,
+    [theme.breakpoints.down('xs')]: {
+      minWidth: 70,
+    },
   },
   black: {
     background: '#333',
     height: 128,
     marginLeft: -16,
+    border: 'none',
     minWidth: 28,
     zIndex: 1,
     '&:active': {

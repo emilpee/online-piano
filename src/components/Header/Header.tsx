@@ -9,6 +9,9 @@ const useStyles = makeStyles((theme) => ({
     border: 0,
     padding: 12,
     textTransform: 'uppercase',
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+    },
   },
   header: {
     alignItems: 'center',
@@ -29,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
   },
   about: {
     justifyContent: 'flex-end',
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+    },
   },
   logo: {
     color: '#fff',
