@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
   about: {
     justifyContent: 'flex-end',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       width: '100%',
     },
   },
@@ -68,7 +68,7 @@ const Header: FunctionComponent = () => {
           About
         </Button>
       </div>
-      <About
+      <About  
         isModalOpen={isModalOpen}
         handleModalOpen={handleOpenModal}
       />

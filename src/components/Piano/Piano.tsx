@@ -18,16 +18,17 @@ import { makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
   main: {
-    flex: 6,
+    display: 'flex',
     flexDirection: 'column',
     overflow: 'scroll',
     WebkitOverflowScrolling: 'touch',
   },
   wrapper: {
     display: 'flex',
+    minHeight: 500,
     alignItems: 'center',
     justifyContent: 'center',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('md')]: {
       justifyContent: 'flex-start',
     },
   },
@@ -38,10 +39,9 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(5),
     paddingBottom: theme.spacing(2),
     paddingTop: theme.spacing(5),
-    width: 1200,
-    [theme.breakpoints.down('xs')]: {
+    minWidth: 1200,
+    [theme.breakpoints.down('md')]: {
       margin: 0,
-      marginTop: theme.spacing(4),
     },
   },
   pianoKeys: {
@@ -61,9 +61,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-evenly',
     marginRight: theme.spacing(5),
     minWidth: 120,
-    [theme.breakpoints.down('xs')]: {
-      minWidth: 70,
-    },
   },
   black: {
     background: '#333',

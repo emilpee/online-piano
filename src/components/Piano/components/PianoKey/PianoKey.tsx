@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     color: theme.palette.info.light,
+    fontWeight: 500,
+    textShadow: `1px 1px 0 ${theme.palette.info.dark}`, 
+    fontSize: 16    
   },
 }))
 
