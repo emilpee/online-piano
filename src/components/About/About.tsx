@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core'
 
 interface AboutModalProps {
-  isModalOpen: boolean
+  isModalOpen?: boolean
   handleModalOpen: () => void
 }
 

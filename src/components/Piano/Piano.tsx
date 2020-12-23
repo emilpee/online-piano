@@ -19,13 +19,17 @@ import { makeStyles } from '@material-ui/core'
 const useStyles = makeStyles((theme) => ({
   main: {
     display: 'flex',
+    flex: 8,
     flexDirection: 'column',
     overflow: 'scroll',
     WebkitOverflowScrolling: 'touch',
+    [theme.breakpoints.down('md')]: {
+      flexDirecton: 'row',
+    },
   },
   wrapper: {
     display: 'flex',
-    minHeight: 500,
+    height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
     [theme.breakpoints.down('md')]: {
@@ -39,7 +43,6 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(5),
     paddingBottom: theme.spacing(2),
     paddingTop: theme.spacing(5),
-    minWidth: 1200,
     [theme.breakpoints.down('md')]: {
       margin: 0,
     },
@@ -60,14 +63,14 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'space-evenly',
     marginRight: theme.spacing(5),
-    minWidth: 120,
+    minWidth: 70,
   },
   black: {
     background: '#333',
     height: 128,
     marginLeft: -16,
     border: 'none',
-    minWidth: 28,
+    minWidth: 26,
     zIndex: 1,
     '&:active': {
       background: 'linear-gradient(to top, #555 0%, #333 100%)',
@@ -79,8 +82,8 @@ const useStyles = makeStyles((theme) => ({
   white: {
     background: '#fff',
     height: 256,
-    minWidth: 56,
-    marginLeft: -16,
+    minWidth: 52,
+    marginLeft: -14,
     '&:active': {
       background: 'linear-gradient(to bottom, #fff 0%, #e6e6e6 100%)',
     },
@@ -137,10 +140,6 @@ const Piano: FunctionComponent = () => {
 
   const handleKeyDown = useCallback(
     (e) => {
-      if (e.repeat) {
-        return
-      }
-
       pianoKeyRef.current = pianoKeyRef.current.slice(
         0,
         pianoData.length,
@@ -150,6 +149,10 @@ const Piano: FunctionComponent = () => {
       let pressedKey = pianoData.find(
         (key) => key.keyboardKey === keyName,
       )
+
+      if (e.repeat || !pressedKey) {
+        return
+      }
 
       let sound = new Howl({
         src: [`/audio/${pressedKey?.key}.mp3`],

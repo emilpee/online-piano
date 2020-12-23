@@ -39,7 +39,7 @@ export const theme = createMuiTheme({
       xs: 0,
       sm: 450,
       md: 950,
-      lg: 1000,
+      lg: 1024,
       xl: 1200,
     },
   },

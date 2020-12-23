@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: theme.shape.borderRadius * 4,
+    borderRadius: theme.shape.borderRadius * 2,
     color: '#eee',
     fontSize: 32,
     minHeight: 60,

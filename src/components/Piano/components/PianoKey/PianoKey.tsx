@@ -26,8 +26,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     color: theme.palette.info.light,
     fontWeight: 500,
-    textShadow: `1px 1px 0 ${theme.palette.info.dark}`, 
-    fontSize: 16    
+    textShadow: `1px 1px 0 ${theme.palette.info.dark}`,
+    fontSize: 14,
   },
 }))
 
