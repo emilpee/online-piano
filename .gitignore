@@ -24,3 +24,6 @@ yarn-error.log*
 
 # src 
 /src/react-app-env.d.ts
+/test-results/
+/playwright-report/
+/playwright/.cache/
